@@ -1,8 +1,30 @@
-<h1> hola </h1>
-<li><%= @task.title %> <%= @task.details%> <%= @task.completed%></li>
-<%= link_to "Back to list", tasks_path  %>
-<%= link_to "Edit task", edit_path  %>
-<%= link_to "Delete",
-  task_path(@task),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure delete #{@task.title}?"}
-%>
+<div class="container">
+<div class="row col-8">
+<h1> TASKS </h1>
+<div class="mb-3">
+  <%= @task.title %>
+</div>
+  <div class="mb-3">
+  <%= @task.details%>
+</div>
+<div>
+  <% if @task.completed%>
+</div>
+<hr>
+<div class="mb-3">
+  <i class="fa-solid fa-square-check"></i>  This task is completed
+  <% else %>
+  <i class="fa-solid fa-square"></i></i> This tasks is not completed
+  <% end %>
+</div>
+<hr>
+<div class="mt-6">
+  <%= link_to "Back to list", tasks_path  %> <small>|</small>
+  <%= link_to "Edit task", edit_path  %> <small>|</small>
+  <%= link_to "Delete",
+    task_path(@task),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure delete #{@task.title}?"}
+  %>
+</div>
+</div>
+</div>
